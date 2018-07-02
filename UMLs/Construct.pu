@@ -1,0 +1,156 @@
+@startuml
+
+package View <<Folder>>{
+  class JFrame
+  class JPanel
+  class MainFrame{
+    + MainFrame()
+    + void main(String args[])
+  }
+  JFrame <|-left- MainFrame
+
+  class TimeTablePanel{
+    - JDialog confirmationDialog
+
+    + TimeTablePanel()
+    - void initialize()
+    - void finalize()
+  }
+
+  class AttendancePanel{
+    - JDialog saveDialog
+    - JFileChooser fileChooser
+
+    + AttendancePanel()
+    - void initialize()
+    - void finalize()
+    - void changeTime()
+    - boolean save()
+    - void output()
+  }
+
+  class StatusPanel{
+    - int absence
+    - int late
+    - int total
+
+    + StatusPanel(int number)
+    + void read()
+  }
+
+  JPanel <|-down- TimeTablePanel
+  JPanel <|-- AttendancePanel
+  JPanel <|-- StatusPanel
+  MainFrame o-- TimeTablePanel
+  MainFrame o-- AttendancePanel
+  MainFrame o-- StatusPanel
+}
+
+package Controller{
+  class AttendanceList{
+    - ArrayList<Attendance> attendList
+
+    + AttendanceList()
+    + boolean read()
+    + Attendance get(int index)
+    + void set(int index, Attendance data)
+    + boolean save()
+  }
+
+  class Attendance{
+    - Student student
+    - int statusFirst
+    - int statusLater
+
+    + Attendance()
+    + int getStatusFirst()
+    + int getStatusLater()
+    + int getStatus(int time)
+    + void setStatusFirst(int status)
+    + void setStatusLater(int status)
+    + void setStatus(int time, int status)
+  }
+
+  class Student{
+    - String name
+    - int number
+
+    + Student(String name, int number)
+    + String getName()
+    + String getNum()
+  }
+
+  AttendanceList o-- Attendance : 1..*
+  Attendance o-- Student
+}
+
+@enduml
+@startuml
+' package and class defs
+package BigPackage <<Folder>> {
+  class ArrayList
+  abstract class List
+
+  ArrayList .up.|> List
+  class Class13
+  class Class17
+  class Class18
+  class Class19
+  class Class20
+
+  enum TimeUnit {
+  DAYS
+  HOURS
+  MINUTES
+  }
+  annotation SuppressWarnings
+}
+
+package java.lang <<Rect>> {
+  interface Runnable {
+    run():void
+  }
+}
+package Package02 <<Cloud>> {
+  class Class01 {
+    {static}  -value1:string
+    ..
+    {abstract} #value2:string
+    ==
+    +value3:string
+    --
+    m(a: string):void
+  }
+  class Class02
+}
+
+class Class15 <? extends Element > {
+
+}
+package FPackage <<Frame>> {
+  class Class05
+  class Class06
+  class Class08
+}
+package Package11 <<Database>> {
+  class Class10
+  class Class04
+
+  Class05 o-- Class06
+  Class05 .. Class08
+  Class05 -- Class10
+  Class04 *-- Class05
+
+}
+
+
+note "This is a floating note" as N1
+Class01 -- N1
+' relationship
+Class01 <|-- Class02
+Class13 --> Class20 : uses >
+Class15 .> Class20 : label
+Class17 ..|> Class20
+Class19 <--* Class20
+
+@enduml
