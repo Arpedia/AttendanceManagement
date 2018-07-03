@@ -11,11 +11,14 @@ package View;
  */
 public class TimeTablePanel extends javax.swing.JPanel {
 
+    MainFrame frame;
     /**
      * Creates new form MenuPanel
      */
-    public TimeTablePanel() {
+    public TimeTablePanel(MainFrame frame) {
         initComponents();
+        this.setSize(1080, 720);
+        this.frame = frame;
     }
 
     /**
