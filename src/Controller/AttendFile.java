@@ -19,16 +19,18 @@ import java.util.Date;
  *
  * @author HIRO
  */
-public class OperateAttendanceFile {
+public class AttendFile {
     final String fsp = File.separator;
     final SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     String path = "resource" + fsp  + "attnd" + fsp + "class";
+    // ./resource/attnd/ がないならば先に作っておくこと。
+    
     
     /**
      * ファイル操作を開始
      * @param lessonID 教科番号
      */
-    public OperateAttendanceFile(int lessonID){
+    public AttendFile(int lessonID){
         this.path += String.valueOf(lessonID) + ".csv";
     }
     
@@ -60,7 +62,7 @@ public class OperateAttendanceFile {
                 for(int colum: row){
                     savedata += "," + String.valueOf(colum);
                 }
-                pwriter.write(savedata);
+                pwriter.println(savedata);
                 count += 1;
             }
             
@@ -68,6 +70,7 @@ public class OperateAttendanceFile {
             return true;
             
         } catch(IOException ex) {
+            System.out.println(ex);
             System.out.println("File Open Error");
             return false;
         }
@@ -94,6 +97,7 @@ public class OperateAttendanceFile {
                     student = new Student(line, count);
                     break;
                 }
+                count += 1;
             }
             bfreader.close();
         } catch(IOException ex) {
