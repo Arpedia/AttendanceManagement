@@ -10,12 +10,15 @@ package View;
  * @author HIRO
  */
 public class AttendancePanel extends javax.swing.JPanel {
-
+    
+    MainFrame frame;
     /**
      * Creates new form AttendancePanel
      */
-    public AttendancePanel() {
+    public AttendancePanel(MainFrame frame) {
         initComponents();
+        this.setSize(1080, 720);
+        this.frame = frame;
     }
 
     /**
