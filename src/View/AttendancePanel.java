@@ -33,7 +33,7 @@ public class AttendancePanel extends javax.swing.JPanel {
      */
     public AttendancePanel(MainFrame frame) {
         initComponents();
-        this.setSize(1080, 720);
+        this.setSize(1280, 720);
         this.frame = frame;
         
         

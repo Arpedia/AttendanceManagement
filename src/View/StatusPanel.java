@@ -17,7 +17,7 @@ public class StatusPanel extends javax.swing.JPanel {
      */
     public StatusPanel(MainFrame frame) {
         initComponents();
-        this.setSize(1080, 720);
+        this.setSize(1280, 720);
         this.frame = frame;
     }
 
