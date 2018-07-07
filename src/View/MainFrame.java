@@ -5,6 +5,9 @@
  */
 package View;
 
+import javax.swing.JFrame;
+
+
 /**
  *
  * @author HIRO
@@ -15,20 +18,23 @@ public class MainFrame extends javax.swing.JFrame {
     StatusPanel status;
     TimeTablePanel timetable;
     /**
-     * Creates new form mainFrame
+     * Creates new form MainFrame
      */
     public MainFrame() {
         initComponents();
+        this.BasePanel.setVisible(false);
+        
         this.timetable = new TimeTablePanel(this);
         this.add(this.timetable);
+        this.revalidate();
+        this.repaint();
         this.timetable.setVisible(true);
-        
+
         this.attendance = null;
 //        this.add(this.attendance);
 
         this.status = null;
 //        this.add(this.status);
-        this.setBounds(0, 0, 1080, 720);
     }
 
     /**
@@ -76,7 +82,7 @@ public class MainFrame extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -98,9 +104,16 @@ public class MainFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> { new MainFrame().setVisible(true); });
+        java.awt.EventQueue.invokeLater(() -> {
+          MainFrame frame = new MainFrame();
+          frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+          frame.pack();
+          frame.setTitle("AttendanceCheck");
+          frame.setBounds(150, 50, 1280, 770);
+          frame.setVisible(true);
+        });
     }
-    
+
     /**
      * 座席画面へ切り替え
      * @param lessonID 授業番号
@@ -110,7 +123,7 @@ public class MainFrame extends javax.swing.JFrame {
         this.attendance = new AttendancePanel(this);
         this.attendance.setVisible(true);
     }
-    
+
     /**
      * 欠課表示画面へ切り替え
      * @param studentID 名列番号
@@ -120,7 +133,7 @@ public class MainFrame extends javax.swing.JFrame {
         this.status = new StatusPanel(this);
         this.status.setVisible(true);
     }
-    
+
     /**
      * トップへ戻る
      */
