@@ -5,6 +5,7 @@
  */
 package View;
 
+
 /**
  *
  * @author HIRO
@@ -16,6 +17,7 @@ public class mainFrame extends javax.swing.JFrame {
      */
     public mainFrame() {
         initComponents();
+        
     }
 
     /**
@@ -71,7 +73,13 @@ public class mainFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> { new mainFrame().setVisible(true); });
+        java.awt.EventQueue.invokeLater(() -> { 
+        mainFrame frame = new mainFrame();
+        frame.setContentPane(new TimeTablePanel());
+        frame.pack();
+        frame.setTitle("AttendanceCheck");
+        frame.setVisible(true);
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
