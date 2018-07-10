@@ -30,8 +30,8 @@ public class AttendFile {
      * ファイル操作を開始
      * @param lessonID 教科番号
      */
-    public AttendFile(int lessonID){
-        this.path += String.valueOf(lessonID) + ".csv";
+    public AttendFile(String lessonID){
+        this.path += "_" + lessonID + ".csv";
     }
     
     /**

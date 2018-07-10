@@ -118,19 +118,20 @@ public class MainFrame extends javax.swing.JFrame {
      * 座席画面へ切り替え
      * @param lessonID 授業番号
      */
-    public void createAttendance(int lessonID){
+    public void createAttendance(String lessonID){
         this.timetable.setVisible(false);
-        this.attendance = new AttendancePanel(this);
+        this.attendance = new AttendancePanel(this, lessonID);
         this.attendance.setVisible(true);
     }
 
     /**
      * 欠課表示画面へ切り替え
+     * @param lessonID 授業番号
      * @param studentID 名列番号
      */
-    public void createStatus(int studentID){
+    public void createStatus(String lessonID, int studentID){
         this.timetable.setVisible(false);
-        this.status = new StatusPanel(this);
+        this.status = new StatusPanel(this, lessonID, studentID);
         this.status.setVisible(true);
     }
 
