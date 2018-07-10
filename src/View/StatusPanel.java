@@ -7,7 +7,7 @@ public class StatusPanel extends javax.swing.JPanel {
     /**
      * Creates new form StatusPanel
      */
-    public StatusPanel(MainFrame frame) {
+    public StatusPanel(MainFrame frame, String subject, int studentID) {
         initComponents();
         this.setSize(1280, 720);
         this.frame = frame;
