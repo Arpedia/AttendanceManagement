@@ -6,10 +6,12 @@
 
 package View;
 
+import Controller.AttendFile;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,13 +19,15 @@ import javax.swing.JLabel;
  */
 public class subjectDialog extends javax.swing.JDialog {
 
+    MainFrame frame;
     /**
      * Creates new form subjectDialog
      */
-    private String subject;
-    public subjectDialog(java.awt.Frame parent, boolean modal,String sbj) {
+    private String subject, value;
+    public subjectDialog(java.awt.Frame parent, boolean modal,String sbj, MainFrame frame) {
         super(parent, modal);
         subject = sbj;
+        this.frame = frame;
         initComponents();
     }
 
@@ -94,12 +98,13 @@ public class subjectDialog extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        value = JOptionPane.showInputDialog(this, "学籍番号を入力してください");
+        AttendFile attendFile = new AttendFile(subject);
+        this.frame.createStatus(subject, Integer.parseInt(value));
         
         //学生確認用？です。遷移文挿入お願いします。(学生用)
         
-        //ここから確認用。
-        System.out.println(subject);
-        //ここまで確認用。
+       
     }//GEN-LAST:event_jButton1ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
