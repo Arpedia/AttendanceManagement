@@ -5,6 +5,7 @@
  */
 package View;
 
+import Controller.Attendance;
 import java.awt.Color;
 import java.util.ArrayList;
 
