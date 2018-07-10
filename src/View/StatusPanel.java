@@ -3,16 +3,14 @@ package View;
 
 public class StatusPanel extends javax.swing.JPanel {
 
-    public StatusPanel() {
+    MainFrame frame;
+    /**
+     * Creates new form StatusPanel
+     */
+    public StatusPanel(MainFrame frame) {
         initComponents();
-    }
-    
-    public static void main(String ags[]){
-        StatusPanel panel = new StatusPanel();
-        panel.setVisible(true);
-        
-        lesson = new classname(subject,number); //classnameは未定
-        
+        this.setSize(1280, 720);
+        this.frame = frame;
     }
 
     @SuppressWarnings("unchecked")
