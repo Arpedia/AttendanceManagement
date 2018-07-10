@@ -5,6 +5,8 @@
  */
 package View;
 
+import Controller.AttendFile;
+import Controller.Attendance;
 import java.awt.Color;
 import java.util.ArrayList;
 
@@ -15,6 +17,9 @@ import java.util.ArrayList;
 public class AttendancePanel extends javax.swing.JPanel {
     int time = 1;
     int subject = 0;//科目ごとに数字を0~19で変更してください
+    int Attend_data[][];
+    boolean unko;
+    AttendFile file;
 
     ArrayList<Integer> state = new ArrayList<>(); //1コマ毎の出席状況
     ArrayList<Integer> count = new ArrayList<>(); //クリック回数
@@ -31,25 +36,26 @@ public class AttendancePanel extends javax.swing.JPanel {
     /**
      * Creates new form AttendancePanel
      */
-    public AttendancePanel(MainFrame frame) {
+    public AttendancePanel(MainFrame frame, String sub) {
         initComponents();
         this.setSize(1280, 720);
         this.frame = frame;
         
+        this.file = new AttendFile(sub);
         
         for (int i = 0; i < 44; i++) {
             state.add(0);
             count.add(0);
             
-            ArrayList<ArrayList<Integer>> subject = new ArrayList<>();
+            ArrayList<ArrayList<Integer>> subjects = new ArrayList<>();
             for(int j = 0; j < 19; j++){
                 ArrayList<Integer> data = new ArrayList<>();
                 for(int k = 0; k < 3; k++){
                     data.add(0);
                 }
-                subject.add(data);
+                subjects.add(data);
             }
-            total_data.add(subject);
+            total_data.add(subjects);
         }
         
         jButton1.setBackground(Color.WHITE);
@@ -116,7 +122,7 @@ public class AttendancePanel extends javax.swing.JPanel {
         timetable.add("エネルギー変換工学");
         timetable.add("プラズマ工学");
         
-        jLabel1.setText("現在の科目は"+timetable.get(subject)+"です。");
+        //jLabel1.setText("現在の科目は"+timetable.get(subject)+"です。");
     }
 
     /**
@@ -1528,14 +1534,27 @@ public class AttendancePanel extends javax.swing.JPanel {
     private void jButton45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton45ActionPerformed
         // TODO add your handling code here:
         //終了ボタン…コマの切り替え、二回目で授業終了
-        time = Attendance.Switch_Attendance(total_data, state, subject, time);
+        //time = Attendance.Switch_Attendance(total_data, state, subject, time);
+        
         
         for (int i = 0; i < 44; i++) {
+            int point =state.get(i);
+            
+            if(point == 2){
+                Attend_data[time - 1][i] = point+1;
+            }else{
+                Attend_data[time - 1][i] = point;
+            }
+            
             state.set(i, 0);
             count.set(i, 0);
         }
         
+        
+        time++;
+        
         if(time == 3){
+            unko = file.saveData(Attend_data);
             time = 1;
             //授業終了別画面切り替え
         }
