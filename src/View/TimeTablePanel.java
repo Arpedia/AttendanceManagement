@@ -11,11 +11,14 @@ package View;
  */
 public class TimeTablePanel extends javax.swing.JPanel{
 
+    MainFrame frame;
     /**
      * Creates new form MenuPanel
      */
-    public TimeTablePanel() {
+    public TimeTablePanel(MainFrame frame) {
         initComponents();
+        this.setBounds(0, 0, 1280, 720);
+        this.frame = frame;
     }
 
     /**
@@ -366,115 +369,115 @@ public class TimeTablePanel extends javax.swing.JPanel{
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        subjectDialog dialog = new subjectDialog(new mainFrame(),true,"opt");
+        subjectDialog dialog = new subjectDialog(new MainFrame(),true,"opt");
         dialog.setVisible(true);
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        subjectDialog dialog = new subjectDialog(new mainFrame(),true,"aph");
+        subjectDialog dialog = new subjectDialog(new MainFrame(),true,"aph");
         dialog.setVisible(true);
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        subjectDialog dialog = new subjectDialog(new mainFrame(),true,"acn");
+        subjectDialog dialog = new subjectDialog(new MainFrame(),true,"acn");
         dialog.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
-        subjectDialog dialog = new subjectDialog(new mainFrame(),true,"dig");
+        subjectDialog dialog = new subjectDialog(new MainFrame(),true,"dig");
         dialog.setVisible(true);
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         // TODO add your handling code here:
-        subjectDialog dialog = new subjectDialog(new mainFrame(),true,"ein");
+        subjectDialog dialog = new subjectDialog(new MainFrame(),true,"ein");
         dialog.setVisible(true);
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
         // TODO add your handling code here:
-        subjectDialog dialog = new subjectDialog(new mainFrame(),true,"elec");
+        subjectDialog dialog = new subjectDialog(new MainFrame(),true,"elec");
         dialog.setVisible(true);
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
         // TODO add your handling code here:
-        subjectDialog dialog = new subjectDialog(new mainFrame(),true,"sft");
+        subjectDialog dialog = new subjectDialog(new MainFrame(),true,"sft");
         dialog.setVisible(true);
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
         // TODO add your handling code here:
-        subjectDialog dialog = new subjectDialog(new mainFrame(),true,"ger");
+        subjectDialog dialog = new subjectDialog(new MainFrame(),true,"ger");
         dialog.setVisible(true);
     }//GEN-LAST:event_jButton8MouseClicked
 
     private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
         // TODO add your handling code here:
-        subjectDialog dialog = new subjectDialog(new mainFrame(),true,"eme");
+        subjectDialog dialog = new subjectDialog(new MainFrame(),true,"eme");
         dialog.setVisible(true);
     }//GEN-LAST:event_jButton9MouseClicked
 
     private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
         // TODO add your handling code here:
-        subjectDialog dialog = new subjectDialog(new mainFrame(),true,"st2");
+        subjectDialog dialog = new subjectDialog(new MainFrame(),true,"st2");
         dialog.setVisible(true);
     }//GEN-LAST:event_jButton10MouseClicked
 
     private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
         // TODO add your handling code here:
-        subjectDialog dialog = new subjectDialog(new mainFrame(),true,"eng");
+        subjectDialog dialog = new subjectDialog(new MainFrame(),true,"eng");
         dialog.setVisible(true);
     }//GEN-LAST:event_jButton11MouseClicked
 
     private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
         // TODO add your handling code here:
-        subjectDialog dialog = new subjectDialog(new mainFrame(),true,"oqe");
+        subjectDialog dialog = new subjectDialog(new MainFrame(),true,"oqe");
         dialog.setVisible(true);
     }//GEN-LAST:event_jButton12MouseClicked
 
     private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
         // TODO add your handling code here:
-        subjectDialog dialog = new subjectDialog(new mainFrame(),true,"com");
+        subjectDialog dialog = new subjectDialog(new MainFrame(),true,"com");
         dialog.setVisible(true);
     }//GEN-LAST:event_jButton13MouseClicked
 
     private void jButton14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseClicked
         // TODO add your handling code here:
-        subjectDialog dialog = new subjectDialog(new mainFrame(),true,"exp1");
+        subjectDialog dialog = new subjectDialog(new MainFrame(),true,"exp1");
         dialog.setVisible(true);
     }//GEN-LAST:event_jButton14MouseClicked
 
     private void jButton15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton15MouseClicked
         // TODO add your handling code here:
-        subjectDialog dialog = new subjectDialog(new mainFrame(),true,"enr");
+        subjectDialog dialog = new subjectDialog(new MainFrame(),true,"enr");
         dialog.setVisible(true);
     }//GEN-LAST:event_jButton15MouseClicked
 
     private void jButton16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton16MouseClicked
         // TODO add your handling code here:
-        subjectDialog dialog = new subjectDialog(new mainFrame(),true,"st1");
+        subjectDialog dialog = new subjectDialog(new MainFrame(),true,"st1");
         dialog.setVisible(true);
     }//GEN-LAST:event_jButton16MouseClicked
 
     private void jButton17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton17MouseClicked
         // TODO add your handling code here:
-        subjectDialog dialog = new subjectDialog(new mainFrame(),true,"ite");
+        subjectDialog dialog = new subjectDialog(new MainFrame(),true,"ite");
         dialog.setVisible(true);
     }//GEN-LAST:event_jButton17MouseClicked
 
     private void jButton18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton18MouseClicked
         // TODO add your handling code here:
-        subjectDialog dialog = new subjectDialog(new mainFrame(),true,"exp2");
+        subjectDialog dialog = new subjectDialog(new MainFrame(),true,"exp2");
         dialog.setVisible(true);
     }//GEN-LAST:event_jButton18MouseClicked
 
     private void jButton19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton19MouseClicked
         // TODO add your handling code here:
-        subjectDialog dialog = new subjectDialog(new mainFrame(),true,"pla");
+        subjectDialog dialog = new subjectDialog(new MainFrame(),true,"pla");
         dialog.setVisible(true);
     }//GEN-LAST:event_jButton19MouseClicked
 

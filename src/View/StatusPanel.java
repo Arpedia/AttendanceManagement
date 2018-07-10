@@ -11,11 +11,14 @@ package View;
  */
 public class StatusPanel extends javax.swing.JPanel {
 
+    MainFrame frame;
     /**
      * Creates new form StatusPanel
      */
-    public StatusPanel() {
+    public StatusPanel(MainFrame frame) {
         initComponents();
+        this.setSize(1280, 720);
+        this.frame = frame;
     }
 
     /**
