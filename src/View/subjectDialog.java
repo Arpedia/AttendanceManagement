@@ -160,7 +160,6 @@ public class subjectDialog extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         number = JOptionPane.showInputDialog(this, "学籍番号を入力してください");
-        AttendFile attendFile = new AttendFile(subject);
         this.frame.createStatus(subject, Integer.parseInt(number));
         
         //学生確認用？です。遷移文挿入お願いします。(学生用)
