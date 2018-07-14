@@ -19,12 +19,12 @@ import javax.swing.JOptionPane;
  */
 public class subjectDialog extends javax.swing.JDialog {
 
-    MainFrame frame;
+    private MainFrame frame;
+    private String subject;
+    private Boolean bool;
     /**
      * Creates new form subjectDialog
      */
-    private String subject, number, pincode;
-    private Boolean bool;
     public subjectDialog(java.awt.Frame parent, boolean modal,String sbj, MainFrame frame) {
         super(parent, modal);
         subject = sbj;
@@ -148,23 +148,23 @@ public class subjectDialog extends javax.swing.JDialog {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        pincode = JOptionPane.showInputDialog(this, "PINコードを入力してください");
-        bool = PinCode(subject, Integer.parseInt(pincode));
-        if(bool = true){
-            this.frame.createAttendance(subject);
-        }
         //PINコード入力などなど遷移文挿入お願いします。(教授用)
+        String pincode = JOptionPane.showInputDialog(this, "PINコードを入力してください");
+        if(pincode == null) return;
+        if(PinCode(subject, Integer.parseInt(pincode))){
+            this.frame.createAttendance(subject, this);
+        }
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        number = JOptionPane.showInputDialog(this, "学籍番号を入力してください");
-        this.frame.createStatus(subject, Integer.parseInt(number));
-        
         //学生確認用？です。遷移文挿入お願いします。(学生用)
+        String number = JOptionPane.showInputDialog(this, "学籍番号を入力してください");
+        if(number == null) return;
+        if(Integer.parseInt(number) > 0 && Integer.parseInt(number) < 44) 
+            this.frame.createStatus(subject, Integer.parseInt(number), this);
         
-       
     }//GEN-LAST:event_jButton1ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

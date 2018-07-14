@@ -118,9 +118,12 @@ public class MainFrame extends javax.swing.JFrame {
      * 座席画面へ切り替え
      * @param lessonID 授業番号
      */
-    public void createAttendance(String lessonID){
+    public void createAttendance(String lessonID, subjectDialog dialog){
         this.timetable.setVisible(false);
+        dialog.setVisible(false);
+        dialog = null;
         this.attendance = new AttendancePanel(this, lessonID);
+        this.add(this.attendance);
         this.attendance.setVisible(true);
     }
 
@@ -128,10 +131,14 @@ public class MainFrame extends javax.swing.JFrame {
      * 欠課表示画面へ切り替え
      * @param lessonID 授業番号
      * @param studentID 名列番号
+     * @param dialog
      */
-    public void createStatus(String lessonID, int studentID){
+    public void createStatus(String lessonID, int studentID, subjectDialog dialog){
         this.timetable.setVisible(false);
+        dialog.setVisible(false);
+        dialog = null;
         this.status = new StatusPanel(this, lessonID, studentID);
+        this.add(this.status);
         this.status.setVisible(true);
     }
 
@@ -140,6 +147,8 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public void returnTimeTable(){
         this.timetable.setVisible(true);
+        if(this.attendance != null) this.remove(this.attendance);
+        if(this.status != null) this.remove(this.status);
         this.status = null;
         this.attendance = null;
     }
