@@ -370,6 +370,7 @@ public class TimeTablePanel extends javax.swing.JPanel{
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         subjectDialog dialog = new subjectDialog(new MainFrame(),true,"opt",frame);
+        dialog.setBounds(200, 100, 400, 350);
         dialog.setVisible(true);
     }//GEN-LAST:event_jButton1MouseClicked
 

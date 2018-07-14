@@ -1,6 +1,7 @@
 package View;
 import Controller.AttendFile;
 import Controller.Student;
+import javax.swing.JOptionPane;
 
 public class StatusPanel extends javax.swing.JPanel {
 
@@ -15,6 +16,11 @@ public class StatusPanel extends javax.swing.JPanel {
         this.frame = frame;
         AttendFile attendfile = new AttendFile(subject);
         student = attendfile.getData(studentID);
+        if(student == null){
+            JOptionPane.showMessageDialog(this.frame, "出席データファイルが開けません。", "ファイルオープンエラー", JOptionPane.ERROR_MESSAGE);
+            this.frame.returnTimeTable();
+            return;
+        }
         if(subject.equals("opt")){  //光工学
             this.jLabel9.setText("光工学");
         }
@@ -94,6 +100,7 @@ public class StatusPanel extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        returnTop = new javax.swing.JButton();
 
         jLabel1.setText("科目名");
 
@@ -114,6 +121,13 @@ public class StatusPanel extends javax.swing.JPanel {
         jLabel9.setText("jLabel9");
 
         jLabel10.setText("jLabel10");
+
+        returnTop.setText("時間割へ戻る");
+        returnTop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnTopActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -137,7 +151,9 @@ public class StatusPanel extends javax.swing.JPanel {
                         .addGap(110, 110, 110)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel7))))
+                            .addComponent(jLabel7)
+                            .addComponent(returnTop))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(158, 158, 158)
@@ -169,9 +185,16 @@ public class StatusPanel extends javax.swing.JPanel {
                     .addComponent(jLabel6)
                     .addComponent(jLabel7)
                     .addComponent(jLabel8))
-                .addContainerGap(183, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addComponent(returnTop)
+                .addGap(78, 78, 78))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void returnTopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnTopActionPerformed
+        // TODO add your handling code here:
+        this.frame.returnTimeTable();
+    }//GEN-LAST:event_returnTopActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -185,5 +208,6 @@ public class StatusPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton returnTop;
     // End of variables declaration//GEN-END:variables
 }
