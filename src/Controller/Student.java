@@ -57,7 +57,7 @@ public class Student {
      * 欠課数を取得
      * @return 欠課数
      */
-    public int getAnsence(){
+    public int getAbsence(){
         return this.absence;
     }
     
