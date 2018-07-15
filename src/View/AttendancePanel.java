@@ -15,9 +15,9 @@ import java.util.ArrayList;
  * @author HIRO
  */
 public class AttendancePanel extends javax.swing.JPanel {
-    int time = 1;
+    int time = 0;
     int subject = 0;//科目ごとに数字を0~18で変更してください
-    int Attend_data[][];
+    int Attend_data[][] = new int[2][44];
     boolean D;
     AttendFile file;
 
@@ -44,6 +44,10 @@ public class AttendancePanel extends javax.swing.JPanel {
         this.file = new AttendFile(sub);
         
         for (int i = 0; i < 44; i++) {
+            
+            Attend_data[0][i]=0;
+            Attend_data[1][i]=0;
+            
             state.add(0);
             count.add(0);
             
@@ -570,17 +574,24 @@ public class AttendancePanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(70, 70, 70)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jButton37)
-                                            .addComponent(jButton38))
-                                        .addGap(61, 61, 61)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jButton30)
-                                            .addComponent(jButton29)
-                                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jButton37)
+                                        .addComponent(jButton38))
+                                    .addGap(61, 61, 61)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jButton29)
+                                                .addComponent(jButton30))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jButton23)
+                                                .addComponent(jButton22))
+                                            .addGap(304, 304, 304))))
+                                .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(jButton39)
@@ -600,18 +611,13 @@ public class AttendancePanel extends javax.swing.JPanel {
                                                 .addComponent(jButton33, javax.swing.GroupLayout.Alignment.TRAILING)
                                                 .addComponent(jButton34, javax.swing.GroupLayout.Alignment.TRAILING)
                                                 .addComponent(jButton35, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jButton36, javax.swing.GroupLayout.Alignment.TRAILING)))))
-                                .addGap(66, 66, 66)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jButton36, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jButton22, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jButton23, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jButton24, javax.swing.GroupLayout.Alignment.TRAILING))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jButton28)
-                                            .addComponent(jButton27))
-                                        .addGap(515, 515, 515))))
+                                        .addComponent(jButton24, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jButton27, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jButton28, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addGap(304, 304, 304)))
                             .addComponent(jButton45, javax.swing.GroupLayout.PREFERRED_SIZE, 845, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(347, 347, 347)
@@ -652,7 +658,7 @@ public class AttendancePanel extends javax.swing.JPanel {
                                         .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addComponent(jButton3)
                                     .addComponent(jButton4))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(467, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -661,13 +667,17 @@ public class AttendancePanel extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton37, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton37, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -692,7 +702,6 @@ public class AttendancePanel extends javax.swing.JPanel {
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(8, 8, 8)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jButton31, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jButton39, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGap(33, 33, 33)
@@ -714,7 +723,8 @@ public class AttendancePanel extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(30, 30, 30)
@@ -756,13 +766,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton5.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton5.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton5.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -794,13 +804,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton2.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton2.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton2.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -813,13 +823,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton3.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton3.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton3.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -832,13 +842,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton4.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton4.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton4.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -851,13 +861,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton6.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton6.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton6.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton6ActionPerformed
@@ -870,13 +880,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton7.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton7.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton7.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton7ActionPerformed
@@ -889,13 +899,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton8.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton8.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton8.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton8ActionPerformed
@@ -908,13 +918,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton9.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton9.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton9.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton9ActionPerformed
@@ -927,13 +937,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton10.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton10.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton10.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton10ActionPerformed
@@ -946,13 +956,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton11.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton11.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton11.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton11ActionPerformed
@@ -965,13 +975,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton12.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton12.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton12.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton12ActionPerformed
@@ -984,13 +994,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton13.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton13.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton13.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton13ActionPerformed
@@ -1003,13 +1013,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton14.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton14.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton14.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton14ActionPerformed
@@ -1022,13 +1032,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton15.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton15.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton15.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton15ActionPerformed
@@ -1041,13 +1051,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton16.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton16.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton16.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton16ActionPerformed
@@ -1060,13 +1070,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton17.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton17.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton17.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton17ActionPerformed
@@ -1079,13 +1089,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton18.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton18.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton18.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton18ActionPerformed
@@ -1098,13 +1108,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton19.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton19.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton19.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton19ActionPerformed
@@ -1117,13 +1127,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton20.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton20.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton20.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton20ActionPerformed
@@ -1136,13 +1146,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton21.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton21.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton21.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton21ActionPerformed
@@ -1155,13 +1165,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton44.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton44.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton44.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton44ActionPerformed
@@ -1174,13 +1184,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton22.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton22.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton22.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton22ActionPerformed
@@ -1193,13 +1203,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton23.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton23.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton23.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton23ActionPerformed
@@ -1212,13 +1222,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton24.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton24.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton24.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton24ActionPerformed
@@ -1231,13 +1241,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton25.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton25.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton25.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton25ActionPerformed
@@ -1250,13 +1260,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton26.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton26.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton26.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton26ActionPerformed
@@ -1269,13 +1279,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton27.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton27.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton27.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton27ActionPerformed
@@ -1288,13 +1298,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton28.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton28.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton28.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton28ActionPerformed
@@ -1307,13 +1317,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton29.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton29.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton29.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton29ActionPerformed
@@ -1326,13 +1336,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton30.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton30.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton30.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton30ActionPerformed
@@ -1345,13 +1355,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton31.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton31.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton31.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton31ActionPerformed
@@ -1364,13 +1374,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton32.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton32.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton32.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton32ActionPerformed
@@ -1383,13 +1393,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton33.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton33.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton33.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton33ActionPerformed
@@ -1402,13 +1412,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton34.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton34.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton34.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton34ActionPerformed
@@ -1421,13 +1431,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton35.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton35.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton35.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton35ActionPerformed
@@ -1440,13 +1450,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton36.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton36.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton36.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton36ActionPerformed
@@ -1459,13 +1469,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton37.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton37.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton37.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton37ActionPerformed
@@ -1478,13 +1488,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton38.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton38.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton38.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton38ActionPerformed
@@ -1497,13 +1507,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton39.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton39.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton39.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton39ActionPerformed
@@ -1516,13 +1526,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton40.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton40.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton40.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton40ActionPerformed
@@ -1535,13 +1545,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton41.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton41.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton41.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton41ActionPerformed
@@ -1554,13 +1564,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton42.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton42.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton42.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton42ActionPerformed
@@ -1573,13 +1583,13 @@ public class AttendancePanel extends javax.swing.JPanel {
         
         switch (color) {
         case 0:
-            jButton1.setBackground(Color.WHITE);
+            jButton43.setBackground(Color.WHITE);
             break;
         case 1:
-            jButton1.setBackground(Color.RED);
+            jButton43.setBackground(Color.RED);
             break;
         case 2:
-            jButton1.setBackground(Color.BLUE);
+            jButton43.setBackground(Color.BLUE);
             break;
         }
     }//GEN-LAST:event_jButton43ActionPerformed
@@ -1593,9 +1603,9 @@ public class AttendancePanel extends javax.swing.JPanel {
             int point =state.get(i);
             
             if(point == 2){
-                Attend_data[time - 1][i] = point+1;
+                Attend_data[time][i] = point+1;
             }else{
-                Attend_data[time - 1][i] = point;
+                Attend_data[time][i] = point;
             }
             
             state.set(i, 0);
@@ -1603,11 +1613,11 @@ public class AttendancePanel extends javax.swing.JPanel {
         }
         
         
-        time = Attendance.Switch_Attendance(total_data, state, subject, time);
+        time++;
         
-        if(time == 3){
+        if(time == 2){
             D = file.saveData(Attend_data);
-            time = 1;
+            time = 0;
             frame.returnTimeTable();
             //授業終了別画面切り替え
         }
