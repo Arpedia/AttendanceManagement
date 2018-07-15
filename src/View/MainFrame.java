@@ -147,8 +147,14 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public void returnTimeTable(){
         this.timetable.setVisible(true);
-        if(this.attendance != null) this.remove(this.attendance);
-        if(this.status != null) this.remove(this.status);
+        if(this.attendance != null){
+            this.attendance.setVisible(false);
+            this.remove(this.attendance);
+        }
+        if(this.status != null) {
+            this.status.setVisible(false);
+            this.remove(this.status);
+        }
         this.status = null;
         this.attendance = null;
     }
