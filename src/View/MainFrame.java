@@ -5,7 +5,10 @@
  */
 package View;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 
 
 /**
@@ -22,6 +25,12 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
+        try{
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            SwingUtilities.updateComponentTreeUI(this);
+        }catch(Exception e){}
+        ImageIcon ico = new ImageIcon("resource/ico/icon-150.png");
+        this.setIconImage(ico.getImage());
         this.BasePanel.setVisible(false);
         
         this.timetable = new TimeTablePanel(this);
